@@ -10,7 +10,11 @@ export default function Menu({ config = [] }) {
     <nav className='sticky z-50 px-10 py-5 bg-black items-center flex justify-between text-white'>
       <Link href='/'>
         <div className='cursor-pointer flex lg:w-6/12 relative'>
-          <img className='h-16' src='/logo.svg' alt='Glory Ape Hole Logo' />
+          <img
+            className='fixed top-0 h-16'
+            src='/logo.svg'
+            alt='Glory Ape Hole Logo'
+          />
         </div>
       </Link>
       <div className='block lg:hidden' onClick={() => setIsOpen(!isOpen)}>
@@ -35,9 +39,18 @@ export default function Menu({ config = [] }) {
             <li key={idx}>
               <div className='relative'>
                 <Link href={item.url} passHref {...item}>
-                  <a className='uppercase py-4 px-4 font-bold text-lg'>
-                    {item.title}
-                  </a>
+                  {item.type === 'anchor' ? (
+                    <a
+                      target='_blank'
+                      className='uppercase py-4 px-4 font-bold text-lg'
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <a className='uppercase py-4 px-4 font-bold text-lg'>
+                      {item.title}
+                    </a>
+                  )}
                 </Link>
               </div>
             </li>
