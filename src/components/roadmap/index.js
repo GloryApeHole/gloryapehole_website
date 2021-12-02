@@ -57,8 +57,9 @@ export default function Roadmap() {
           Our plan on conquering the Metaverse
         </p>
         <p className='text-lg mt-10 w-10/12 md:block hidden'>
-          We've consulted key people from Metaverse, we've gathered best minds
-          from all over the universe on creating this roadmap.
+          {
+            " We've consulted key people from Metaverse, we've gathered best minds from all over the universe on creating this roadmap."
+          }
         </p>
       </div>
       <div className='w-full md:w-6/12 flex flex-col'>

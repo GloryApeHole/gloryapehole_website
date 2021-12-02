@@ -19,8 +19,9 @@ export default function Artwork() {
           <strong>
             <u>REALISTIC</u>
           </strong>{' '}
-          art. Each imperfection is unique and special thus represting artist's
-          vision.
+          {
+            "art. Each imperfection is unique and special thus represting artist's vision."
+          }
         </p>
       </div>
       <div className='w-full md:w-6/12 flex'>
