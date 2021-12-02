@@ -12,7 +12,7 @@ const members = [
     jpeg: '/tm3.jpeg',
   },
   {
-    title: '[ SnooRabbits ] Blockchain Dev/Crypto Maniac Bunny',
+    title: '[ SnooRabbits ] Blockchain Dev/Crypto Maniac Ape',
     jpeg: '/tm2.jpeg',
     content:
       'A superb blockchain dev and a true crypto maniac since several years now with strong experience in crypto market. Buy high, sell low is his motto.',
