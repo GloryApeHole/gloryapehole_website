@@ -3,6 +3,9 @@ import styles from '../styles/Home.module.css';
 import withLayout from 'components/withLayout';
 import Hero from 'components/hero';
 import Team from 'components/team';
+import Artwork from 'components/artwork';
+import Story from 'components/story';
+import Roadmap from 'components/roadmap';
 function Home() {
   return (
     <>
@@ -21,6 +24,9 @@ Sale starts soon. Don't miss it!
           <Hero />
         </section>
         <Team />
+        <Artwork />
+        <Story />
+        <Roadmap />
       </main>
     </>
   );

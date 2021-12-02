@@ -4,6 +4,18 @@ export const configLeft = [
     url: '/#team',
   },
   {
+    title: 'artwork',
+    url: '/#artwork',
+  },
+  {
+    title: 'story',
+    url: '/#story',
+  },
+  {
+    title: 'roadmap',
+    url: '/#roadmap',
+  },
+  {
     title: 'twitter',
     url: 'https://twitter.com/gloryapehole',
     type: 'anchor',
