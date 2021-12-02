@@ -5,7 +5,7 @@ export default function Artwork() {
       className='w-full flex md:flex-row flex-col py-20 text-white px-10 border-b border-white'
     >
       <div className='flex-col md:sticky self-start top-0 flex w-full md:w-6/12'>
-        <h1 className='font-bold text-4xl mb-5 md:text-6xl w-full md:w-6/12 pr-5'>
+        <h1 className='font-bold text-center md:text-left text-4xl mb-5 md:text-6xl w-full md:w-6/12 pr-5'>
           The artwork
         </h1>
         <p className='text-lg font-semibold w-10/12 md:block hidden'>
@@ -24,8 +24,8 @@ export default function Artwork() {
           }
         </p>
       </div>
-      <div className='w-full md:w-6/12 flex'>
-        <img src='/apes.gif' className='rounded-md w-3/4' />
+      <div className='w-full md:w-6/12 flex justify-center'>
+        <img src='/apes.gif' className='rounded-md w-full md:w-3/4' />
       </div>
     </section>
   );
