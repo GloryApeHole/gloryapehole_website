@@ -8,7 +8,7 @@ export default function Story() {
         <h1 className='font-bold text-4xl mb-5 md:text-6xl w-full pr-5'>
           Story
         </h1>
-        <p className='text-lg mt-10 w-10/12 md:block hidden'>
+        <p className='text-lg mt-10 w-10/12 block'>
           After five years on Earth, Glory Apes return to the city of Los Apes,
           Metaverse to find numerous fellow ape-members dead and enemy apes
           having dominance of the city. Glory Apes must take over the city and
