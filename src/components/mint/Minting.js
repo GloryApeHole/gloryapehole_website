@@ -71,7 +71,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 
 export default function Minting() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  const { total, smartContract, account } = state;
+  const { total, smartContract, account, data } = state;
   useEffect(() => {
     const connectToBlockchain = connect();
     const performConnection = async () => {
@@ -81,6 +81,8 @@ export default function Minting() {
   }, []);
 
   useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_INFURA_API);
+
     if (smartContract) {
       const dataReader = fetchData(smartContract);
       dataReader(dispatch);
@@ -105,13 +107,21 @@ export default function Minting() {
       {/* details */}
       <div className='flex justify-between items-center rounded-lg border border-white px-5 py-5'>
         {/* <div className='w-full md:w-6/12 flex justify-between'> */}
-        <img src='/apes.gif' className='md:block hidden rounded-md w-1/6' />
+        <img src='/apes.gif' className='lg:block hidden rounded-md w-1/6' />
         <div className='text-white font-semibold flex flex-col justify-center items-baseline'>
           <span className='text-md'>Price Per Ape</span>
           <span className='text-xl'>{PRICE} (0,029 ETH) MATIC Each</span>
         </div>
         {/* </div> */}
       </div>
+      {account && (
+        <div className='py-5 flex justify-between font-bold text-xl items-center'>
+          <span>Total minted:</span>
+          <span>
+            {data.totalSupply} / {data.maxSupply}
+          </span>
+        </div>
+      )}
       {/* counter */}
       <div className='flex justify-between items-center border border-white rounded-lg mt-10 bg-balticSea px-5 py-2'>
         <div className='flex flex-row justify-center items-center font-bold'>

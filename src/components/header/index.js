@@ -7,7 +7,7 @@ export default function Menu({ config = [] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className='sticky z-50 border-b border-white px-10 py-5 bg-black items-center flex justify-between text-white'>
+    <nav className='fixed w-full z-50 border-b border-white px-10 py-5 bg-black items-center flex justify-between text-white'>
       <Link href='/'>
         <div className='cursor-pointer flex lg:w-6/12 relative'>
           <img

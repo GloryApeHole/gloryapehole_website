@@ -8,12 +8,12 @@ export default function Artwork() {
         <h1 className='font-bold text-center md:text-left text-4xl mb-5 md:text-6xl w-full md:w-6/12 pr-5'>
           The artwork
         </h1>
-        <p className='text-lg font-semibold w-10/12 md:block hidden'>
+        <p className='text-lg font-semibold w-10/12 block'>
           Glory Ape Hole is a unique NFT collection of 6969 Glory Apes generated
           from over 170+ hand drawn traits. The team and artists have worked on
           this project for over 4 months now.
         </p>
-        <p className='text-lg mt-10 w-10/12 md:block hidden'>
+        <p className='text-lg mt-10 w-10/12 block'>
           Our special artists drew every single trait by hand focusing on
           creating{' '}
           <strong>
@@ -24,8 +24,12 @@ export default function Artwork() {
           }
         </p>
       </div>
-      <div className='w-full md:w-6/12 flex justify-center'>
-        <img src='/sneak.jpeg' className='rounded-md w-full md:w-3/4' />
+      <div className='w-full pt-5 md:w-6/12 flex justify-center'>
+        <img
+          style={{ height: 'fit-content' }}
+          src='/sneak.jpeg'
+          className='rounded-md w-full md:w-3/4'
+        />
       </div>
     </section>
   );
