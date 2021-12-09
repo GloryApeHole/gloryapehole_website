@@ -6,6 +6,8 @@ import Team from 'components/team';
 import Artwork from 'components/artwork';
 import Story from 'components/story';
 import Roadmap from 'components/roadmap';
+import Mint from 'components/mint';
+
 function Home() {
   return (
     <>
@@ -38,6 +40,7 @@ Sale starts soon. Don't miss it!
         </section>
         <Team />
         <Artwork />
+        <Mint />
         <Story />
         <Roadmap />
       </main>

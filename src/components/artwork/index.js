@@ -25,7 +25,7 @@ export default function Artwork() {
         </p>
       </div>
       <div className='w-full md:w-6/12 flex justify-center'>
-        <img src='/apes.gif' className='rounded-md w-full md:w-3/4' />
+        <img src='/sneak.jpeg' className='rounded-md w-full md:w-3/4' />
       </div>
     </section>
   );

@@ -23,6 +23,7 @@ module.exports = {
       yellowMustMake: '#f6aa2f',
       mustMakeBlack: '#15141b',
       mustMakeWhite: '#eaebeb',
+      balticSea: '#3e3e3e',
     },
     minWidth: {
       0: '0',
