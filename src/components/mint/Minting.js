@@ -1,21 +1,103 @@
-import { useState } from 'react';
+import { useEffect, useReducer } from 'react';
+import { connect, claimNFTs } from 'components/blockchain/actions';
+import { fetchData } from 'components/blockchain/dataActions';
 
 const PRICE = 55;
 
 const LIMIT = 20;
 
+const INITIAL_STATE = {
+  isConnectedToMetaMask: false,
+  account: null,
+  smartContract: null,
+  web3: null,
+  errorMsg: '',
+  total: 0,
+  data: {},
+  dataError: '',
+  metaMaskMessage: '',
+};
+
+const reducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case 'CONNECTION_SUCCESS':
+      return {
+        ...state,
+        loading: false,
+        account: action.payload.account,
+        smartContract: action.payload.smartContract,
+        web3: action.payload.web3,
+      };
+    case 'CONNECTION_FAILED':
+      return {
+        ...INITIAL_STATE,
+        loading: false,
+        errorMsg: action.payload,
+      };
+    case 'UPDATE_ACCOUNT':
+      return {
+        ...state,
+        account: action.payload.account,
+      };
+    case 'METAMASK_CONNECT':
+      return {
+        ...state,
+        isConnectedToMetaMask: action.payload,
+      };
+    case 'SET_TOTAL':
+      return {
+        ...state,
+        total: action.payload,
+      };
+    case 'FETCH_DATA_SUCCESS':
+      return {
+        ...state,
+        data: action.payload,
+      };
+    case 'FETCH_DATA_FAILED':
+      return {
+        ...state,
+        dataError: action.payload,
+      };
+    case 'SET_MM_MESSAGE':
+      return {
+        ...state,
+        metaMaskMessage: '',
+      };
+    default:
+      return state;
+  }
+};
+
 export default function Minting() {
-  const [total, setTotal] = useState(0);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  const { total, smartContract, account } = state;
+  useEffect(() => {
+    const connectToBlockchain = connect();
+    const performConnection = async () => {
+      await connectToBlockchain(dispatch);
+    };
+    performConnection();
+  }, []);
+
+  useEffect(() => {
+    if (smartContract) {
+      const dataReader = fetchData(smartContract);
+      dataReader(dispatch);
+    }
+  }, [smartContract]);
+
+  const claimingCallback = (msg) => dispatch({ type: 'SET_MM_MESSAGE', msg });
 
   const increase = () => {
     if (total < LIMIT) {
-      setTotal(total + 1);
+      dispatch({ type: 'SET_TOTAL', payload: total + 1 });
     }
   };
 
   const decrease = () => {
     if (total > 0) {
-      setTotal(total - 1);
+      dispatch({ type: 'SET_TOTAL', payload: total - 1 });
     }
   };
   return (
@@ -23,7 +105,7 @@ export default function Minting() {
       {/* details */}
       <div className='flex justify-between items-center rounded-lg border border-white px-5 py-5'>
         {/* <div className='w-full md:w-6/12 flex justify-between'> */}
-        <img src='/apes.gif' className='rounded-md w-1/6' />
+        <img src='/apes.gif' className='md:block hidden rounded-md w-1/6' />
         <div className='text-white font-semibold flex flex-col justify-center items-baseline'>
           <span className='text-md'>Price Per Ape</span>
           <span className='text-xl'>{PRICE} (0,029 ETH) MATIC Each</span>
@@ -76,14 +158,30 @@ export default function Minting() {
           <h1>{total * PRICE} MATIC</h1>
         </div>
       </div>
-      <button
-        type={'button'}
-        className={
-          'w-full hover:bg-transparent hover:border-2 border-black hover:text-black dark:hover:bg-transparent dark:hover:border-2 dark:hover:border-white dark:hover:text-white text-xl md:text-2xl px-5 py-5 my-6 text-white bg-mustMakeBlack dark:bg-white dark:text-black'
-        }
-      >
-        CLAIM
-      </button>
+      {state.metaMaskMessage ? (
+        <h1 className='text-white text-2xl font-bold py-5'>
+          Message: {state.metaMaskMessage}
+        </h1>
+      ) : null}
+      {state.account ? (
+        <button
+          type={'button'}
+          onClick={() => {
+            if (total > 0)
+              claimNFTs(smartContract, account, total, claimingCallback);
+            else false;
+          }}
+          className={
+            'w-full hover:bg-transparent hover:border-2 border-black hover:text-black dark:hover:bg-transparent dark:hover:border-2 dark:hover:border-white dark:hover:text-white text-xl md:text-2xl px-5 py-5 my-6 text-white bg-mustMakeBlack dark:bg-white dark:text-black'
+          }
+        >
+          {total > 0 ? 'CLAIM' : 'Minimum amount is 1 GAH'}
+        </button>
+      ) : (
+        <span className='flex justify-center items-center mt-10 text-2xl uppercase text-white'>
+          {state.errorMsg || 'please connect to metamask'}
+        </span>
+      )}
     </div>
   );
 }
