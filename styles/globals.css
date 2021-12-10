@@ -20,7 +20,8 @@ a {
 }
 
 .hero-background {
-  background-image: url('/gah_cover_mobile.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/gah_cover_mobile.jpg');
   background-size: cover;
   background-position: center center;
 }
@@ -31,7 +32,8 @@ a {
 
 @media screen and (min-width: 768px) {
   .hero-background {
-    background-image: url('/gah_cover.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('/gah_cover.jpg');
     background-size: cover;
   }
 }
