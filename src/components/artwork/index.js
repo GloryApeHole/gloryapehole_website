@@ -26,9 +26,8 @@ export default function Artwork() {
       </div>
       <div className='w-full pt-5 md:w-6/12 flex justify-center'>
         <img
-          style={{ height: 'fit-content' }}
           src='/sneak.jpeg'
-          className='rounded-md w-full md:w-3/4'
+          className='rounded-md w-full md:w-3/4 artwork-img'
         />
       </div>
     </section>

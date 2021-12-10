@@ -7,9 +7,8 @@ export default function MintWrapper() {
     >
       <div className='w-full md:w-6/12 flex justify-center'>
         <img
-          style={{ height: 'fit-content' }}
           src='/apes.gif'
-          className='rounded-md w-full md:w-3/4'
+          className='rounded-md artwork-img w-full md:w-3/4'
         />
       </div>
       <div className='flex-col md:sticky self-start top-0 flex w-full md:w-6/12'>
