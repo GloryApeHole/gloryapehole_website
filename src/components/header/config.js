@@ -30,4 +30,8 @@ export const configLeft = [
     url: 'https://discord.gg/SWgF4v6p',
     type: 'anchor',
   },
+  {
+    title: 'mint',
+    url: '/#minting',
+  },
 ];

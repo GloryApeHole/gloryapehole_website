@@ -2,7 +2,7 @@ import Minting from './Minting';
 export default function MintWrapper() {
   return (
     <section
-      id='artwork'
+      id='minting'
       className='w-full flex md:flex-row flex-col py-20 text-white px-10 border-b border-white'
     >
       <div className='w-full md:w-6/12 flex justify-center'>
