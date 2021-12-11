@@ -24,6 +24,7 @@ export default function MintWrapper() {
             <a
               href='https://medium.com/stakingbits/setting-up-metamask-for-polygon-matic-network-838058f6d844'
               target='_blank'
+              rel='noreferrer'
               className='block underline mt-2'
             >
               Setting up Metamask for Polygon
