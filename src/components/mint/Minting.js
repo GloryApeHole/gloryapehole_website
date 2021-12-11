@@ -114,14 +114,10 @@ export default function Minting() {
         </div>
         {/* </div> */}
       </div>
-      {account && (
-        <div className='py-5 flex justify-between font-bold text-xl items-center'>
-          <span>Total minted:</span>
-          <span>
-            {data.totalSupply} / {data.maxSupply}
-          </span>
-        </div>
-      )}
+      <div className='py-5 flex justify-between font-bold text-xl items-center'>
+        <span>First batch supply</span>
+        <span>Limited to: 696</span>
+      </div>
       {/* counter */}
       <div className='flex justify-between items-center border border-white rounded-lg mt-10 bg-balticSea px-5 py-2'>
         <div className='flex flex-row justify-center items-center font-bold'>

@@ -15,8 +15,20 @@ export default function MintWrapper() {
         <h1 className='pt-5 font-bold text-center md:text-left text-4xl mb-5 md:text-6xl w-full pr-5'>
           CLAIM YOUR APE
         </h1>
-        <p className='py-5 text-lg font-semibold w-10/12 md:block hidden'>
-          Enter how many apes you would like to mint here
+        <p className='flex flex-col py-5 text-lg font-semibold w-10/12 md:block hidden'>
+          <span className='block'>
+            Enter how many apes you would like to mint here
+          </span>
+          <span className='block mt-5 text-sm'>
+            Make sure to connect to Polygon (Matic) Network{' '}
+            <a
+              href='https://medium.com/stakingbits/setting-up-metamask-for-polygon-matic-network-838058f6d844'
+              target='_blank'
+              className='block underline mt-2'
+            >
+              Setting up Metamask for Polygon
+            </a>
+          </span>
         </p>
         <Minting />
       </div>
