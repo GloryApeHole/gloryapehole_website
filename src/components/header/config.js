@@ -27,7 +27,7 @@ export const configLeft = [
   },
   {
     title: 'discord',
-    url: 'https://discord.gg/SWgF4v6p',
+    url: 'https://discord.gg/P7KZ5Bas65',
     type: 'anchor',
   },
   {
